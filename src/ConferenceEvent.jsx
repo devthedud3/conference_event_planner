@@ -69,8 +69,8 @@ const ConferenceEvent = () => {
             });
         }
         if (selection === 'meals'){
-            venueItems.forEach((item) => {
-                totalCost += item.cost * item.selected;
+            mealsItems.forEach((item) => {
+                totalCost += (item.selected ? item.cost : 0) * numberOfPeople;
             });
         }
 
@@ -165,7 +165,7 @@ const ConferenceEvent = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="total_cost">Total Cost: ${calculateTotalCost(venueItems)}</div>
+                                <div className="total_cost">Total Cost: ${calculateTotalCost("venue")}</div>
                             </div>
 
                             {/*Necessary Add-ons*/}
@@ -194,7 +194,7 @@ const ConferenceEvent = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="total_cost">Total Cost: ${calculateTotalCost(avItems)}</div>
+                                <div className="total_cost">Total Cost: ${calculateTotalCost("av")}</div>
 
                             </div>
 
@@ -228,7 +228,7 @@ const ConferenceEvent = () => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="total_cost">Total Cost: </div>
+                                <div className="total_cost">Total Cost: ${calculateTotalCost("meals")}</div>
 
 
                             </div>
